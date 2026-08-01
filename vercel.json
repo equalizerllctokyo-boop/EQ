@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/eq-home-redesign",
+      "destination": "/eq-home-redesign.html"
+    }
+  ]
+}
