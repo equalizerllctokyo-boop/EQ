@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EQ — Film that makes a difference.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+
+    :root { --ink:#07080b; --paper:#f1f2f3; --blue:#4b5cff; --line:rgba(255,255,255,.18); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--paper); background:var(--ink); font-family:Manrope,"Noto Sans JP",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .grid { background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px); background-size:64px 64px; }
+    nav { position:absolute; z-index:5; width:100%; display:flex; justify-content:space-between; align-items:center; padding:28px 4.5vw; letter-spacing:.04em; }
+    .brand { display:block; line-height:0; }
+    .brand img { display:block; width:150px; height:172px; object-fit:contain; }
+    .nav-right { display:flex; gap:26px; align-items:center; font-size:12px; font-weight:700; }
+    .contact-pill { padding:12px 17px; border:1px solid rgba(255,255,255,.8); border-radius:999px; }
+    .hero { min-height:100svh; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:0 4.5vw 6vh; }
+    .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.12) brightness(.54); }
+    .hero::before { content:""; position:absolute; z-index:1; inset:0; background:linear-gradient(115deg,rgba(0,0,0,.91) 4%,rgba(0,0,0,.25) 53%,rgba(0,0,0,.78)),linear-gradient(0deg,rgba(0,0,0,.3),transparent 55%); }
+    .hero::after { content:""; position:absolute; inset:0; opacity:.55; background:linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size:16.66% 100%; mix-blend-mode:overlay; }
+    .hero-content { position:relative; z-index:2; max-width:1100px; }
+    .eyebrow { font:11px "DM Mono",monospace; letter-spacing:.14em; color:#a8b1ff; display:flex; gap:10px; align-items:center; }
+    .eyebrow::before { content:""; width:27px; height:1px; background:var(--blue); }
+    h1 { font-size:clamp(53px,9vw,145px); line-height:.87; letter-spacing:-.075em; margin:20px 0 27px; font-weight:800; }
+    h1 .blue { color:#7682ff; }
+    .hero-bottom { display:flex; justify-content:space-between; align-items:end; gap:30px; }
+    .hero-bottom p { max-width:410px; margin:0; font-size:14px; line-height:1.9; }
+    .round-link { flex:none; width:132px; height:132px; border-radius:50%; display:grid; place-items:center; background:var(--blue); font-size:12px; font-weight:800; transition:.25s; }
+    .round-link:hover { transform:scale(1.08) rotate(7deg); background:white; color:#161b73; }
+    .hero-index { position:absolute; right:4.5vw; top:50%; transform:rotate(90deg) translateX(50%); transform-origin:right; z-index:2; font:10px "DM Mono",monospace; letter-spacing:.18em; color:#9da4ae; }
+    section { padding:120px 4.5vw; }
+    .section-top { display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:16px; margin-bottom:55px; }
+    .section-num, .section-label { font:10px "DM Mono",monospace; letter-spacing:.14em; color:#aeb3bd; }
+    .statement { background:#e9eaf0; color:#0a0b10; min-height:54vw; display:flex; align-items:center; }
+    .statement h2 { margin:0; max-width:1000px; font-size:clamp(38px,6.6vw,102px); letter-spacing:-.07em; line-height:1.05; }
+    .statement h2 em { color:var(--blue); font-style:normal; }
+    .works { padding-top:110px; }
+    .works-title { font-size:clamp(45px,7vw,100px); letter-spacing:-.07em; margin:0; line-height:.9; }
+    .works-grid { display:grid; grid-template-columns:1.45fr 1fr 1fr; gap:13px; }
+    .work { min-height:300px; position:relative; overflow:hidden; background:#171a22; display:flex; align-items:flex-end; padding:19px; }
+    .work:first-child { grid-row:span 2; min-height:613px; }
+    .work::before { content:""; position:absolute; inset:0; opacity:.9; transition:transform .6s; background:linear-gradient(0deg,rgba(4,5,9,.82),transparent 65%),var(--bg); }
+    .work:hover::before { transform:none; }
+    .work > div { position:relative; z-index:1; }
+    .tag { font:10px "DM Mono",monospace; letter-spacing:.1em; color:#a8b0ff; }
+    .work h3 { font-size:18px; margin:8px 0 0; letter-spacing:-.035em; line-height:1.35; }
+    .work-1 { --bg:url('https://static.wixstatic.com/media/fcc669_1773545fe6654253a964391e42dca610~mv2.jpg/v1/fill/w_966,h_1152,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fcc669_1773545fe6654253a964391e42dca610~mv2.jpg') center/contain no-repeat; }
+    .work-2 { --bg:url('ganmen-niki-46jichu.jpg') center/contain no-repeat; }
+    .work-3 { --bg:url('https://static.wixstatic.com/media/11062b_6ef642220c2644939055d17c480e6929~mv2.jpg/v1/fill/w_344,h_385,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/%E6%97%A5%E6%9C%AC%E3%81%AE%E5%9F%8E.jpg') center/contain no-repeat; }
+    .work-4 { --bg:url('binabe.jpg') center/contain no-repeat; }
+    .work-5 { --bg:url('neighbor-school-setagaya.jpg') center/contain no-repeat; }
+    .work-pair { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+    .work-6 { min-height:330px; --bg:url('suretigai.jpg') center/contain no-repeat; }
+    .work-7 { min-height:330px; --bg:url('8utterfly-koigusuri.jpg') center/contain no-repeat; }
+    .work-8 { min-height:330px; --bg:url('twilight-blue-portrait-1.jpg') center/contain no-repeat; }
+    .work-9 { min-height:330px; --bg:url('twilight-blue-portrait-2.jpg') center/contain no-repeat; }
+    .more { margin-top:28px; display:inline-flex; gap:12px; align-items:center; font:12px "DM Mono",monospace; letter-spacing:.08em; border-bottom:1px solid #7f89ff; padding-bottom:7px; }
+    .tourism-video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#000; }
+    .tourism-lead { margin:28px 0 36px; font-size:clamp(32px,5vw,74px); font-weight:800; letter-spacing:-.065em; line-height:1; }
+    .tourism-caption { margin:18px 0 0; color:#c8cbd2; font-size:14px; letter-spacing:.02em; }
+    .services { background:#101218; }
+    .service-list { border-top:1px solid var(--line); }
+    .service { display:grid; grid-template-columns:85px 1fr 1.2fr auto; align-items:center; gap:20px; padding:26px 0; border-bottom:1px solid var(--line); }
+    .service span { font:11px "DM Mono",monospace; color:#939aa7; }
+    .service h3 { margin:0; font-size:clamp(21px,2.7vw,40px); letter-spacing:-.055em; }
+    .service p { margin:0; color:#b7bac3; font-size:13px; line-height:1.7; max-width:310px; }
+    .price { font:15px "DM Mono",monospace; color:#9ba5ff; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); }
+    .flow-item { padding:23px 22px 0 0; min-height:220px; border-right:1px solid var(--line); }
+    .flow-item:not(:first-child) { padding-left:22px; }
+    .flow-item:last-child { border:0; }
+    .flow-item strong { display:block; color:#6775ff; font:30px "DM Mono",monospace; margin-bottom:43px; }
+    .flow-item h3 { font-size:17px; margin:0 0 13px; }
+    .flow-item p { color:#aeb2bd; font-size:12px; line-height:1.75; margin:0; }
+    footer { padding:8vw 4.5vw 3vw; background:var(--blue); color:#fff; }
+    footer h2 { font-size:clamp(58px,10vw,154px); letter-spacing:-.085em; line-height:.86; margin:0 0 8vw; }
+    .footer-line { border-top:1px solid rgba(255,255,255,.48); padding-top:16px; display:flex; justify-content:space-between; gap:30px; font-size:12px; }
+    .footer-line a { font-weight:700; }
+    @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .nav-right > a:not(.contact-pill) { display:none; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work:first-child { min-height:360px; grid-row:auto; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .footer-line { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="#top" aria-label="EQUALIZER LLC. ホーム"><img src="eq-logo-full.png" alt="EQ Equalizer LLC."></a>
+    <div class="nav-right"><a href="#works">WORKS</a><a href="#tourism-promotion">TOURISM</a><a href="#works-photo">PHOTO</a><a href="#services">SERVICES</a><a href="#about">ABOUT</a><a class="contact-pill" href="#contact">CONTACT ↗</a></div>
+  </nav>
+  <main id="top">
+    <section class="hero grid">
+      <video class="hero-video" autoplay muted loop playsinline aria-hidden="true"><source src="https://eq-home-latest.vercel.app/eq-sample.mp4" type="video/mp4"></video>
+      <div class="hero-index">TOKYO / JAPAN — 2026</div>
+      <div class="hero-content">
+        <div class="eyebrow">VIDEO PRODUCTION STUDIO</div>
+        <h1>MAKE<br>YOUR <span class="blue">STORY</span><br>VISIBLE.</h1>
+        <div class="hero-bottom"><p>映像は、情報を伝えるだけのものではない。<br>心を動かし、ブランドの価値をもっと鮮明にするもの。</p><a class="round-link" href="#works">VIEW WORKS<br>↓</a></div>
+      </div>
+    </section>
+
+    <section class="statement" id="about"><h2>必要なものを、<em>もっと際立たせる。</em><br>EQは映像で、ブランドの魅力を整えます。</h2></section>
+
+    <section class="works" id="works">
+      <div class="section-top"><span class="section-num">01 / SELECTED WORKS</span><span class="section-label">映像制作実績</span></div>
+      <h2 class="works-title">WORKS</h2>
+      <div class="works-grid">
+        <a class="work work-1" href="https://youtu.be/SZehxzrRDHE?si=rE8py-c384R0fHEq" target="_blank" rel="noopener noreferrer" aria-label="時東あみ『わたしはアイドル』Official Music Video をYouTubeで開く"><div><span class="tag">MUSIC VIDEO / 2025</span><h3>時東あみ『わたしはアイドル』<br>Official Music Video</h3></div></a>
+        <a class="work work-2" href="https://youtu.be/LLlXajy09JU?si=4CbCZc5P6wJyRDUW" target="_blank" rel="noopener noreferrer" aria-label="顔面ニキ 46時中をYouTubeで開く"><div><span class="tag">PROMOTION FILM / 2025</span><h3>顔面ニキ<br>46時中</h3></div></a>
+        <a class="work work-3" href="#tourism-promotion"><div><span class="tag">TOURISM PROMOTION</span><h3>山形県山形市 - 山寺・立石寺<br>PRサンプル映像</h3></div></a>
+        <a class="work work-4" href="#contact"><div><span class="tag">COMMERCIAL / 2025</span><h3>薬膳火鍋 美鍋<br>Brand Promotion</h3></div></a>
+        <a class="work work-5" href="#contact"><div><span class="tag">OPENING FILM / SETAGAYA</span><h3>世田谷区主催<br>ネイバースクール OP映像制作</h3></div></a>
+        <div class="work-pair">
+          <a class="work work-6" href="#contact"><div><span class="tag">MUSIC VIDEO</span><h3>顔面ニキチャンネル エンディングテーマ曲<br>「すれ違い」MV制作</h3></div></a>
+          <a class="work work-7" href="https://youtu.be/a0uqJzFCVfU?si=69rnod0JIu4_sEoe" target="_blank" rel="noopener noreferrer" aria-label="8utterfly 恋薬 Official Music Video をYouTubeで開く"><div><span class="tag">OFFICIAL MUSIC VIDEO</span><h3>8utterfly - 恋薬<br>Official Music Video</h3></div></a>
+        </div>
+      </div>
+      <a class="more" href="#contact">ALL WORKS &nbsp;↗</a>
+    </section>
+
+    <section class="works" id="tourism-promotion">
+      <div class="section-top"><span class="section-num">02 / TOURISM PROMOTION</span><span class="section-label">観光PR映像</span></div>
+      <h2 class="works-title">TOURISM<br>PROMOTION</h2>
+      <p class="tourism-lead">地方の魅力を最大限に</p>
+      <video class="tourism-video" autoplay muted loop playsinline aria-label="山寺PR映像"><source src="https://eq-home-latest.vercel.app/yamadera-pr.mp4" type="video/mp4"></video>
+      <p class="tourism-caption">山形県山形市 - 山寺・立石寺　PRサンプル映像</p>
+    </section>
+
+    <section class="works" id="works-photo">
+      <div class="section-top"><span class="section-num">03 / SELECTED PHOTOGRAPHY</span><span class="section-label">写真制作実績</span></div>
+      <h2 class="works-title">WORKS PHOTO</h2>
+      <div class="works-grid">
+        <div class="work-pair">
+          <a class="work work-8" href="#contact"><div><span class="tag">PORTRAIT PHOTOGRAPHY</span><h3>トワイライトブルー<br>ポートレート撮影</h3></div></a>
+          <a class="work work-9" href="#contact"><div><span class="tag">PORTRAIT PHOTOGRAPHY</span><h3>トワイライトブルー<br>ポートレート 2</h3></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-top"><span class="section-num">04 / WHAT WE DO</span><span class="section-label">サービス</span></div>
+      <div class="service-list">
+        <article class="service"><span>01</span><h3>Music Video</h3><p>アーティストの世界観を、何度も見返したくなる映像へ。</p><b class="price">ASK</b></article>
+        <article class="service"><span>02</span><h3>Brand Film</h3><p>企業・店舗・商品の魅力を、伝わるストーリーに変えます。</p><b class="price">¥150,000〜</b></article>
+        <article class="service"><span>03</span><h3>Tourism PR</h3><p>地域の空気感まで届ける、観光・自治体向けのPR映像。</p><b class="price">¥189,000〜</b></article>
+        <article class="service"><span>04</span><h3>Social Content</h3><p>SNSで長く愛される、縦型・短尺のコンテンツを制作。</p><b class="price">¥99,800〜</b></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-top"><span class="section-num">05 / PROCESS</span><span class="section-label">制作の流れ</span></div>
+      <div class="flow">
+        <article class="flow-item"><strong>01</strong><h3>Direction</h3><p>オンラインまたは対面で、目的と理想のイメージを共有します。</p></article>
+        <article class="flow-item"><strong>02</strong><h3>Shooting</h3><p>現場の空気を大切にしながら、丁寧に撮影を進めます。</p></article>
+        <article class="flow-item"><strong>03</strong><h3>Editing</h3><p>撮影素材を編集し、最短3日で初回の映像をご確認いただけます。</p></article>
+        <article class="flow-item"><strong>04</strong><h3>Delivery</h3><p>修正を反映し、納得いただける完成形でデータ納品します。</p></article>
+      </div>
+    </section>
+  </main>
+  <footer id="contact">
+    <div class="eyebrow" style="color:#fff">LET'S MAKE SOMETHING MEMORABLE</div>
+    <h2>START A<br>PROJECT.</h2>
+    <div class="footer-line"><span>東京都世田谷区桜丘 5-32-3</span><a href="mailto:equalizer.llc.tokyo@gmail.com">equalizer.llc.tokyo@gmail.com ↗</a><a href="tel:09028821714">090 2882 1714 ↗</a></div>
+  </footer>
+</body>
+</html>
