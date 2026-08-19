@@ -69,6 +69,12 @@
     .statement { background:#e9eaf0; color:#0a0b10; min-height:54vw; display:flex; align-items:center; }
     .statement h2 { margin:0; max-width:1000px; font-size:clamp(38px,6.6vw,102px); letter-spacing:-.07em; line-height:1.05; }
     .statement h2 em { color:var(--blue); font-style:normal; }
+    .news { background:#0d0f15; }
+    .news-list { border-top:1px solid var(--line); }
+    .news-item { display:grid; grid-template-columns:150px 1fr auto; gap:24px; align-items:center; padding:28px 0; border-bottom:1px solid var(--line); }
+    .news-date, .news-type { font:11px "DM Mono",monospace; letter-spacing:.08em; color:#9ba5ff; }
+    .news-item h3 { margin:0; font-size:clamp(20px,2.5vw,34px); letter-spacing:-.045em; line-height:1.35; }
+    .news-arrow { font-size:22px; color:#a8b1ff; }
     .works { padding-top:110px; }
     .works-title { font-size:clamp(45px,7vw,100px); letter-spacing:-.07em; margin:0; line-height:.9; }
     .works-grid { display:grid; grid-template-columns:1.45fr 1fr 1fr; gap:13px; }
@@ -111,7 +117,7 @@
     footer h2 { font-size:clamp(58px,10vw,154px); letter-spacing:-.085em; line-height:.86; margin:0 0 8vw; }
     .footer-line { border-top:1px solid rgba(255,255,255,.48); padding-top:16px; display:flex; justify-content:space-between; gap:30px; font-size:12px; }
     .footer-line a { font-weight:700; }
-    @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .nav-right > a:not(.contact-pill) { display:none; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work:first-child { min-height:360px; grid-row:auto; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .footer-line { flex-direction:column; } }
+    @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .nav-right > a:not(.contact-pill) { display:none; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work:first-child { min-height:360px; grid-row:auto; } .news-item { grid-template-columns:1fr; gap:10px; } .news-arrow { display:none; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .footer-line { flex-direction:column; } }
   </style>
 </head>
 <body>
@@ -131,6 +137,13 @@
     </section>
 
     <section class="statement" id="about"><h2>必要なものを、<em>もっと際立たせる。</em><br>EQは映像で、ブランドの魅力を整えます。</h2></section>
+
+    <section class="news" id="news">
+      <div class="section-top"><span class="section-num">01 / NEWS</span><span class="section-label">お知らせ</span></div>
+      <div class="news-list">
+        <article class="news-item"><span class="news-date">2026.08.19</span><div><span class="news-type">PRODUCTION NEWS</span><h3>世田谷区『世田谷で働こう』映像制作担当決定。</h3></div><span class="news-arrow">↗</span></article>
+      </div>
+    </section>
 
     <section class="works" id="works">
       <div class="section-top"><span class="section-num">01 / SELECTED WORKS</span><span class="section-label">映像制作実績</span></div>
