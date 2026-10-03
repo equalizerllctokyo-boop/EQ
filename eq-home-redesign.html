@@ -117,15 +117,15 @@
     .service h3 { margin:0; font-size:clamp(21px,2.7vw,40px); letter-spacing:-.055em; }
     .service p { margin:0; color:#b7bac3; font-size:13px; line-height:1.7; max-width:310px; }
     .price { font:15px "DM Mono",monospace; color:#9ba5ff; }
-    .flow { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); }
-    .flow-item { position:relative; padding:23px 22px 0 0; min-height:220px; border-right:1px solid var(--line); }
-    .flow-item:not(:first-child) { padding-left:22px; }
-    .flow-item:last-child { border:0; }
-    .flow-item:not(:last-child)::after { content:"→"; position:absolute; z-index:2; top:18px; right:-16px; display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--blue); color:#fff; font:700 18px/1 Arial,sans-serif; box-shadow:0 0 0 7px #07080b; animation:flow-arrow 2s ease-in-out infinite; }
+    .flow { display:grid; grid-template-columns:1fr; border-top:1px solid var(--line); }
+    .flow-item { position:relative; display:grid; grid-template-columns:110px minmax(140px,.8fr) 2fr; align-items:center; column-gap:28px; padding:25px 0; min-height:145px; border-bottom:1px solid var(--line); }
+    .flow-item:not(:first-child) { padding-left:0; }
+    .flow-item:last-child { border-bottom:0; }
+    .flow-item:not(:last-child)::after { content:"↓"; position:absolute; z-index:2; bottom:-16px; left:55px; display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--blue); color:#fff; font:700 18px/1 Arial,sans-serif; box-shadow:0 0 0 7px #07080b; animation:flow-arrow-down 2s ease-in-out infinite; }
     .flow-item:nth-child(2)::after { animation-delay:.22s; }
     .flow-item:nth-child(3)::after { animation-delay:.44s; }
-    .flow-item strong { display:block; color:#6775ff; font:30px "DM Mono",monospace; margin-bottom:43px; }
-    .flow-item h3 { font-size:17px; margin:0 0 13px; }
+    .flow-item strong { display:block; color:#6775ff; font:30px "DM Mono",monospace; margin:0; }
+    .flow-item h3 { font-size:17px; margin:0; }
     .flow-item p { color:#aeb2bd; font-size:12px; line-height:1.75; margin:0; }
     @keyframes flow-arrow { 0%,100% { transform:translateX(-4px); box-shadow:0 0 0 7px #07080b,0 0 0 rgba(75,92,255,0); } 50% { transform:translateX(4px); box-shadow:0 0 0 7px #07080b,0 0 18px rgba(102,117,255,.7); } }
     footer { padding:8vw 4.5vw 3vw; background:var(--blue); color:#fff; }
@@ -137,6 +137,7 @@
     .line-float-icon { width:24px; height:24px; display:grid; place-items:center; border-radius:50%; background:#fff; color:#06c755; font:800 11px/1 Arial,sans-serif; }
     @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work-1,.work-2,.work-3,.work-4,.work-5 { min-height:360px; grid-column:auto; grid-row:auto; } .news-item { grid-template-columns:1fr; gap:10px; } .news-arrow { display:none; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .flow-item:nth-child(2)::after { content:"↙"; top:auto; right:auto; bottom:-16px; left:0; transform:translateX(-50%); animation:flow-arrow-down 2s ease-in-out infinite .22s; } .footer-line { flex-direction:column; } .line-float { right:16px; bottom:16px; padding:12px 15px 12px 13px; } }
     @media (max-width:700px) { .nav-right > a:not(.contact-pill) { display:none; } }
+    @media (max-width:700px) { .flow { grid-template-columns:1fr; } .flow-item { grid-template-columns:54px 1fr; column-gap:12px; min-height:0; padding:23px 0!important; border-right:0; } .flow-item p { grid-column:2; } .flow-item:not(:last-child)::after,.flow-item:nth-child(2)::after { content:"↓"; left:27px; bottom:-16px; transform:translateX(-50%); animation:flow-arrow-down 2s ease-in-out infinite; } }
     @keyframes flow-arrow-down { 0%,100% { transform:translate(-50%,-4px); box-shadow:0 0 0 7px #07080b,0 0 0 rgba(75,92,255,0); } 50% { transform:translate(-50%,4px); box-shadow:0 0 0 7px #07080b,0 0 18px rgba(102,117,255,.7); } }
   </style>
 </head>
