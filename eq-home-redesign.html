@@ -133,7 +133,8 @@
     .line-float { position:fixed; right:24px; bottom:24px; z-index:20; display:flex; align-items:center; gap:10px; padding:13px 18px 13px 14px; border-radius:999px; background:#06c755; color:#fff; box-shadow:0 12px 30px rgba(0,0,0,.3); font-size:13px; font-weight:800; transition:transform .2s,background .2s; }
     .line-float:hover { transform:translateY(-3px); background:#05ae4a; }
     .line-float-icon { width:24px; height:24px; display:grid; place-items:center; border-radius:50%; background:#fff; color:#06c755; font:800 11px/1 Arial,sans-serif; }
-    @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .nav-right > a:not(.contact-pill) { display:none; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work-1,.work-2,.work-3,.work-4,.work-5 { min-height:360px; grid-column:auto; grid-row:auto; } .news-item { grid-template-columns:1fr; gap:10px; } .news-arrow { display:none; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .flow-item:nth-child(2)::after { content:"↓"; top:auto; right:auto; bottom:-16px; left:50%; transform:translateX(-50%); animation:flow-arrow-down 2s ease-in-out infinite .22s; } .footer-line { flex-direction:column; } .line-float { right:16px; bottom:16px; padding:12px 15px 12px 13px; } }
+    @media (max-width:700px) { nav { padding:20px 6vw; } .brand img { width:92px; height:106px; } .hero { padding:0 6vw 4vh; } .hero-index { display:none; } .hero-bottom { align-items:flex-start; flex-direction:column; } .round-link { width:104px; height:104px; } section { padding:78px 6vw; } .statement { min-height:82vw; } .works-grid { grid-template-columns:1fr; } .work-pair { grid-template-columns:1fr; } .work,.work-1,.work-2,.work-3,.work-4,.work-5 { min-height:360px; grid-column:auto; grid-row:auto; } .news-item { grid-template-columns:1fr; gap:10px; } .news-arrow { display:none; } .service { grid-template-columns:50px 1fr; } .service p { grid-column:2; } .price { grid-column:2; } .flow { grid-template-columns:1fr 1fr; } .flow-item { min-height:215px; padding:20px!important; border-bottom:1px solid var(--line); } .flow-item:nth-child(2) { border-right:0; } .flow-item:nth-child(2)::after { content:"↙"; top:auto; right:auto; bottom:-16px; left:0; transform:translateX(-50%); animation:flow-arrow-down 2s ease-in-out infinite .22s; } .footer-line { flex-direction:column; } .line-float { right:16px; bottom:16px; padding:12px 15px 12px 13px; } }
+    @media (max-width:700px) { .nav-right > a:not(.contact-pill) { display:none; } }
     @keyframes flow-arrow-down { 0%,100% { transform:translate(-50%,-4px); box-shadow:0 0 0 7px #07080b,0 0 0 rgba(75,92,255,0); } 50% { transform:translate(-50%,4px); box-shadow:0 0 0 7px #07080b,0 0 18px rgba(102,117,255,.7); } }
   </style>
 </head>
@@ -203,23 +204,23 @@
       </div>
     </section>
 
-    <section class="services" id="services">
-      <div class="section-top"><span class="section-num">04 / WHAT WE DO</span><span class="section-label">サービス</span></div>
-      <div class="service-list">
-        <article class="service"><span>01</span><h3>Music Video</h3><p>アーティストの世界観を、何度も見返したくなる映像へ。</p><b class="price">ASK</b></article>
-        <article class="service"><span>02</span><h3>Brand Film</h3><p>企業・店舗・商品の魅力を、伝わるストーリーに変えます。</p><b class="price">¥150,000〜</b></article>
-        <article class="service"><span>03</span><h3>Tourism PR</h3><p>地域の空気感まで届ける、観光・自治体向けのPR映像。</p><b class="price">¥189,000〜</b></article>
-        <article class="service"><span>04</span><h3>Social Content</h3><p>SNSで長く愛される、縦型・短尺のコンテンツを制作。</p><b class="price">¥99,800〜</b></article>
-      </div>
-    </section>
-
     <section>
-      <div class="section-top process-top"><span class="section-num">05 / PROCESS</span><span class="section-label">制作の流れ</span></div>
+      <div class="section-top process-top"><span class="section-num">04 / PROCESS</span><span class="section-label">制作の流れ</span></div>
       <div class="flow">
         <article class="flow-item"><strong>01</strong><h3>Direction</h3><p>オンラインまたは対面で、目的と理想のイメージを共有します。</p></article>
         <article class="flow-item"><strong>02</strong><h3>Shooting</h3><p>現場の空気を大切にしながら、丁寧に撮影を進めます。</p></article>
         <article class="flow-item"><strong>03</strong><h3>Editing</h3><p>撮影素材を編集し、最短3日で初回の映像をご確認いただけます。</p></article>
         <article class="flow-item"><strong>04</strong><h3>Delivery</h3><p>修正を反映し、納得いただける完成形でデータ納品します。</p></article>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-top"><span class="section-num">05 / WHAT WE DO</span><span class="section-label">サービス</span></div>
+      <div class="service-list">
+        <article class="service"><span>01</span><h3>Music Video</h3><p>アーティストの世界観を、何度も見返したくなる映像へ。</p><b class="price">ASK</b></article>
+        <article class="service"><span>02</span><h3>Brand Film</h3><p>企業・店舗・商品の魅力を、伝わるストーリーに変えます。</p><b class="price">¥150,000〜</b></article>
+        <article class="service"><span>03</span><h3>Tourism PR</h3><p>地域の空気感まで届ける、観光・自治体向けのPR映像。</p><b class="price">¥189,000〜</b></article>
+        <article class="service"><span>04</span><h3>Social Content</h3><p>SNSで長く愛される、縦型・短尺のコンテンツを制作。</p><b class="price">¥99,800〜</b></article>
       </div>
     </section>
   </main>
