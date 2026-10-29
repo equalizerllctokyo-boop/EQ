@@ -122,6 +122,18 @@
     .setagaya-project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
     .setagaya-project-grid .work-10,.setagaya-project-grid .work-11,.setagaya-project-grid .work-12,.setagaya-project-grid .work-16,.setagaya-project-grid .work-17 { grid-column:auto; }
     @media (max-width:700px) { .setagaya-project { padding:16px; } .setagaya-project-grid { grid-template-columns:1fr; } }
+    .gallery { background:#0d0f15; }
+    .gallery-intro { margin:28px 0 32px; color:#b9bec9; font-size:14px; }
+    .gallery-shell { display:flex; align-items:center; gap:14px; }
+    .gallery-track { display:flex; width:100%; gap:14px; overflow-x:auto; padding-bottom:5px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; }
+    .gallery-track::-webkit-scrollbar { display:none; }
+    .gallery-slide { flex:0 0 min(78vw,760px); aspect-ratio:16 / 9; margin:0; overflow:hidden; scroll-snap-align:start; border:1px solid #2b3040; background:#11141c; }
+    .gallery-slide img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+    .gallery-slide:hover img { transform:scale(1.025); }
+    .gallery-button { flex:0 0 46px; width:46px; height:46px; border:1px solid #3c4359; border-radius:50%; background:#0b0d13; color:#e9ebff; font:500 22px/1 Arial,sans-serif; cursor:pointer; transition:border-color .2s, background .2s; }
+    .gallery-button:hover { border-color:#a8b1ff; background:#151a29; }
+    .gallery-hint { margin:14px 0 0; color:#8f96a4; text-align:right; font:11px "DM Mono",monospace; letter-spacing:.08em; }
+    @media (max-width:700px) { .gallery-shell { gap:8px; } .gallery-button { display:none; } .gallery-slide { flex-basis:88vw; } .gallery-hint { text-align:left; } }
     .more { margin-top:28px; display:inline-flex; gap:12px; align-items:center; font:12px "DM Mono",monospace; letter-spacing:.08em; border-bottom:1px solid #7f89ff; padding-bottom:7px; }
     .tourism-video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#000; }
     .tourism-lead { margin:28px 0 36px; font-size:clamp(32px,5vw,74px); font-weight:800; letter-spacing:-.065em; line-height:1; }
@@ -163,7 +175,7 @@
 <body>
   <nav>
     <a class="brand" href="#top" aria-label="EQUALIZER LLC. ホーム"><img src="eq-logo-full.png" alt="EQ Equalizer LLC."></a>
-    <div class="nav-right"><a href="#works">WORKS</a><a href="#tourism-promotion">TOURISM</a><a href="#works-photo">PHOTO</a><a href="#services">SERVICES</a><a href="#about">ABOUT</a><a class="contact-pill" href="#contact">CONTACT ↗</a></div>
+    <div class="nav-right"><a href="#works">WORKS</a><a href="#gallery">GALLERY</a><a href="#tourism-promotion">TOURISM</a><a href="#works-photo">PHOTO</a><a href="#services">SERVICES</a><a href="#about">ABOUT</a><a class="contact-pill" href="#contact">CONTACT ↗</a></div>
   </nav>
   <main id="top">
     <section class="hero grid">
@@ -219,6 +231,28 @@
       <a class="more" href="#contact">ALL WORKS &nbsp;↗</a>
     </section>
 
+    <section class="gallery" id="gallery">
+      <div class="section-top"><span class="section-num">02 / GALLERY</span><span class="section-label">世田谷区プロジェクト</span></div>
+      <h2 class="works-title">GALLERY</h2>
+      <p class="gallery-intro">世田谷区プロジェクト　工業・建設業雇用促進PR映像</p>
+      <div class="gallery-shell">
+        <button class="gallery-button gallery-prev" type="button" aria-label="前の写真を見る">←</button>
+        <div class="gallery-track" tabindex="0" aria-label="世田谷区プロジェクトの写真ギャラリー">
+          <figure class="gallery-slide"><img src="gallery-soejima-2.jpg" alt="株式会社ソエジマの施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-soejima-1.jpg" alt="株式会社ソエジマの施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-ishii-2.jpg" alt="株式会社石井組の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-ishii-1.jpg" alt="株式会社石井組の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-yoshihashi-2.jpg" alt="株式会社吉橋興業の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-yoshihashi-1.jpg" alt="株式会社吉橋興業の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-toden-2.jpg" alt="株式会社東電通信の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-toden-1.jpg" alt="株式会社東電通信の施工現場"></figure>
+          <figure class="gallery-slide"><img src="gallery-fuji-2.jpg" alt="株式会社富士水質管理の業務風景"></figure>
+        </div>
+        <button class="gallery-button gallery-next" type="button" aria-label="次の写真を見る">→</button>
+      </div>
+      <p class="gallery-hint">横にスライドしてご覧いただけます</p>
+    </section>
+
     <section class="works" id="tourism-promotion">
       <div class="section-top"><span class="section-num">02 / TOURISM PROMOTION</span><span class="section-label">観光PR映像</span></div>
       <h2 class="works-title">TOURISM<br>PROMOTION</h2>
@@ -266,5 +300,11 @@
     <div class="footer-line"><span>東京都世田谷区桜丘 5-32-3</span><a href="mailto:equalizer.llc.tokyo@gmail.com">equalizer.llc.tokyo@gmail.com ↗</a></div>
   </footer>
   <a class="line-float" href="https://lin.ee/ziwLRLu" target="_blank" rel="noopener noreferrer" aria-label="LINE公式アカウントで相談する"><span class="line-float-icon">LINE</span>LINEで相談</a>
+  <script>
+    const galleryTrack = document.querySelector('.gallery-track');
+    const slideGallery = direction => galleryTrack?.scrollBy({ left: direction * Math.min(galleryTrack.clientWidth * .86, 700), behavior: 'smooth' });
+    document.querySelector('.gallery-prev')?.addEventListener('click', () => slideGallery(-1));
+    document.querySelector('.gallery-next')?.addEventListener('click', () => slideGallery(1));
+  </script>
 </body>
 </html>
